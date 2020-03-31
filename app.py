@@ -160,12 +160,21 @@ class ProfileForm(Form):
     type_of_profile = SelectField(
         u'Profile',
         choices=[('noanswer', 'N/A'),
-                 ('student', 'Student'),
-                 ('radred', 'Radiology resident'),
-                 ('resnorad', 'Resident (non radiologist)'),
-                 ('torrad', 'Torax radiologist'),
-                 ('genrad', 'General radiologist'),
-                 ('breastrad', 'Breast radiologist')])
+                 ('abdradio', ' Abdominal radiologist '),
+                 ('Neuroradio', ' Neuroradiologist '),
+                 ('breastradio', ' Breast radiologist '),
+                 ('muscradio', ' Musculoskeletal radiologist '),
+                 ('generalradio', 'General radiologist'),
+                 ('interradio', 'Interventional radiologist'),
+                 ('pediradio', ' Pediatric radiologist ') ,  
+                 ('thoraradio', ' Thoracic radiologist '),
+                 ('radioresi', 'Radiology resident'),
+                 ('resiother', 'Resident (other than radiology) ') ,  
+                 ('medicalstudent', ' Estudiante de medicina'),
+                 ('assophypulmo', ' Associate Physician of Pulmonology '), 
+                 ('internassisphysi', ' Internist Assistant Physician '),  
+                 ('deputyemerg, ' Deputy emergency physician '),    
+                 ('assodoctorother', ' Associate doctor of another specialty ')])
     user_profile=TextField(u'USER PROFILE','')
 
 @app.route('/send_results', methods=['POST'])
