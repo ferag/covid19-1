@@ -1,0 +1,68 @@
+{% extends 'index.html' %}
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div class="home">
+  <div class="home__container"></div>
+  <div class="home__section">
+    <h1 class="home__title">DIAGNOSTICA COVID-19 EN RADIOGRAFÍAS DE TÓRAX</h1>
+    <p class="home__paragraph">Aplicación de entrenamiento para la detencion de casos patológicos de coronavirus. Destinado para médicos y radiólogos. Calcula tu sensibilidad, especificidad, valores predictivos y precisión.</p>
+    <div class="home__row">
+      <div class="home__button">
+        <button
+          class="covid-button"
+          onclick="document.location.href = '/login'"
+        >
+          COVID-19 TRAINING
+        </button>
+      </div>
+      <div class="home__info">
+        <a
+          href="https://seram.es/images/site/Introduccio%CC%81n_a_la_infeccio%CC%81n_COVID-19.pdf"
+          target="_blank"
+        >
+          ¿cuáles son los hallazgos de COVID-19?
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="home__section">
+    <h2 class="home__subtitle">APLICACIÓN DISEÑADA PARA CUALQUIER TIPO DE PROFESIONAL MÉDICO</h2>
+    <div class="home__row">
+      <div class="home__column">
+        <div class="home__circle">
+          <img 
+            src="{{ url_for('static',filename='assets/doctor.png') }}"
+            alt="doctor"
+            class="doctor"
+          >
+        </div>
+        <h3>Médicos</h3>
+        <p class="home__text">Para médicos de cualquier especialidad</p>
+      </div>
+      <div class="home__column">
+        <div class="home__circle">
+          <img
+            src="{{ url_for('static',filename='assets/radiologist.png') }}"
+            alt="radiologist"
+            class="radiologist"
+          >
+        </div>
+        <h3>Radiólogos</h3>
+        <p class="home__text">Para todo tipo de radiólogos</p>
+      </div>
+      <div class="home__column">
+        <div class="home__circle">
+          <img 
+            src="{{ url_for('static',filename='assets/student.png') }}"
+            alt="student"
+            class="student"
+          >
+        </div>
+        <h3>Estudiantes</h3>
+        <p class="home__text">También para estudiantes</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,27 +1,52 @@
-{% extends 'base.html' %}
-
-{% block title %}COVID-19 Training{% endblock %}
+{% extends 'index.html' %}
+{% block title %}Training{% endblock %}
+{% block head %}
+  {{ super() }}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script src="https://www.jose-aguilar.com/scripts/jquery/zoomy/zoomy.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $('.zoom').zoomy();
+    });
+  </script>
+{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="column2" style="background-color:#bbb;">
-    <form action="/send_results" method="POST">
-    {{ form.csrf_token }}
-    <p>
-        {{ form.type_of_diag.label }}{{ form.type_of_diag }}
-    </p>
-    <p>
-    Age: {{ edad }} <br>
-    Sex: {{ sex }}
-    </p>
-    <input type="submit" name="button_next" value="Continue">
-    </form>
-    <p><a href="/results">Finish and evaluate</a></p>
-    </div>    
-    
-    <div class="column1">
-    <a href={{ img }} class="zoom"> <img src={{ img }} alt={{ img_id }} width="150" height="200" /></a>
-   
+<div class="content training">
+  <div class="training__actions">
+    <div class="training__end" >
+      <button
+        class="covid-button"
+        onclick="document.location.href = '/results'"
+      >
+        Finalizar test
+      </button>
     </div>
+    <div class="training__container">
+      <form action="/send_results" method="POST">
+        {{ form.csrf_token }}
+        <div>
+          Sexo: {{ sex }}<br>
+          Edad: {{ age }}<br>
+        </div>
+        <div>
+          <br>{{ form.type_of_diag.label }}
+          <br>{{ form.type_of_diag }}
+        </div>
+        <input
+          class="training__next covid-button"
+          type="submit"
+          name="button_next"
+          value="Siguiente"
+        >
+      </form>
+    </div>
+  </div>    
+    
+  <div class="training__images">
+    <a href={{ img }} class="zoom">
+      <img src={{ img }} alt={{ img_id }} width="150" height="200" />
+    </a>
+  </div>
 </div>
 {% endblock %}

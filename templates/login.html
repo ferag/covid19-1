@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% block title %}Inicio{% endblock %}
+{% block head %}
+  {{ super() }}
+  <script src="{{ url_for('static',filename='controller/login.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+  <div class="content login">
+    <div class="login__avatar">
+      <img
+        src="{{ url_for('static',filename='assets/logo.png') }}"
+        alt="Covid-19 Avatar"
+      >
+    </div>
+    <div class="login__label">
+      {% if loggedin  %}
+        Hola, {{ user }}, bienvenido a COVID-19 training
+      {% else %}
+        Inicia sesión en COVID-19 training
+      {% endif %}
+    </div>
+    <div class="login__button">
+      <button class="covid-button" onclick="onLogin()">
+        {% if loggedin  %}
+          Entrar
+        {% else %}
+          Iniciar sesión
+        {% endif %}
+      </button>
+      <p class="login__error" id="error"></p>
+    </div>
+    <div class="login__terms">
+      <input
+        class="login__terms__checkbox"
+        type="checkbox"
+        id="terms"
+        onclick="checkTerms()"
+        {% if loggedin %}checked{% endif %}
+      >
+      <label for="terms">
+        Acepto los términos y condiciones de uso
+      </label>
+    </div>
+    {% if loggedin %}
+    <div class="login__logout">
+      Si quieres finalizar la sesión, haz <a href="/logout">click aqui</a>.
+    </div>
+    {% endif %}
+  </div>
+{% endblock %}

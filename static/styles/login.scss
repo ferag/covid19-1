@@ -1,0 +1,56 @@
+.login {
+  &__avatar {
+    margin: auto;
+    margin-top: 1rem;
+    width: 120px;
+    img {
+      border-radius: 8px;
+      border: 1px solid grey;
+    }
+  }
+
+  &__label {
+    margin-top: 2rem;
+  }
+
+  &__button {
+    margin: 1rem auto;
+    position: relative;
+    width: 50%;
+
+    button {
+      width: 100%;
+    }
+  }
+
+  &__error {
+    background-color: #C54842;
+    color: whitesmoke;
+    font-size: 16px;
+    font-weight: bold;
+    left: 3px;
+    position: absolute;
+    top: 34px;
+  }
+  
+  &__terms {
+    margin: 2rem 1rem 1rem;
+    font-size: 14px;
+
+    &__checkbox {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  &__logout {
+    font-size: 14px;
+    a {
+      color: #ffc000;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}

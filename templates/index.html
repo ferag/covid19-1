@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    {% block head %}
+    {% assets "scss_all" %}
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+    {% endassets %}
+    <link rel="stylesheet" href="https://www.jose-aguilar.com/scripts/jquery/zoomy/zoomy.css"/>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='assets/favicon.ico') }}"/>
+    <title>{% block title %}{% endblock %} - Covid-19 Training</title>
+    <meta charset="UTF-8"/>
+    {% endblock %}
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="content__wrapper">
+        {% block content %}
+        {% endblock %}
+      </div>
+      <div class="footer">
+        {% block footer %}
+        <a href="/about">Acerca de este proyecto y su finalidad</a>
+         | <a href="https://drive.google.com/file/d/15F7yiFtvUZLpIxU1s6TXd_Ni1K3adqYL/view?usp=sharing" target="_blank">Términos y condiciones de uso</a>
+         | <a href="mailto:covid19trainingapp@gmail.com">Contacta con nosotros</a>
+         | Copyright &copy; IFCA - CSIC
+        {% endblock %}
+      </div>
+    </div>
+    {% if message %}
+      <p>Note: {{ message }}</p>
+    {% endif %}
+  </body>
+</html>

@@ -1,50 +1,76 @@
-{% extends 'base.html' %}
+{% extends 'index.html' %}
 
-{% block title %}Thanks{% endblock %}
+{% block title %}Resultados{% endblock %}
 
 {% block content %}
-    <h1>Your results:</h1>
+<div class="content results">
+  <h1>Resultados del test</h1>
+  {% if failed_answers|length==0 %}
+    <p>No ha contestado a ninguna pregunta del test</p>
+  {% else %}
+    <div class="results__details">
+      <p><b>Precisión global:</b>&nbsp;{{res[0]}}%</p>
+      <p><b>Sensibilidad:</b>&nbsp;{{res[1]}}</p>
+      <p><b>Especificidad:</b>&nbsp;{{res[2]}}</p>
+      <p><b>Valor predictivo positivo:</b>&nbsp;{{res[3]}}</p>
+      <p><b>Valor predictivo negativo:</b>&nbsp;{{res[4]}}</p>
+    </div>
+  {% endif %}
+  <br>
+  <p>¿Quieres volverlo a intentar?</p>
 
-    <ul>
-<div class="row">
-  <div class="column2">
+  <div class="results__try-again" >
+    <button
+      class="covid-button"
+      onclick="document.location.href = '/training'"
+    >
+      Inténtalo otra vez
+    </button>
   </div>
-  <div class="column1" style="background-color:#bbb;">
-     <b>Total Score:</b> {{res[0]}}% <br>
-     <b>Sensitivity:</b> {{res[1]}} <br>
-     <b>Specificity:</b> {{res[2]}} <br>
-     <br>
-    <p>Do you want to try another one?</p>
-
-   <p><a href="/training">Try again</a></p>
-<br>
-{%if res[0]==100%}
-<center> <h2><font face="verdana"><b>Congratulations! You have no incorrect answers!</b></font></h2> </center><br><br>
-{% else  %}
-<center> <h2><font face="verdana"><b>Check your incorrect answers:</b></font></h2> </center><br><br>
+  {% if res[0]==100 %}
+    <h2><b>Felicidades! Todas las respuestas correctas!</b></h2>
+  {% else %}
+    {% if failed_answers|length!=0 %}
+    <div class="results__separator"></div>
+      <h2><b>Revisa tus respuestas erroneas</b></h2>
+    {% endif%}
     {% for answer in failed_answers %}
-    {% if answer[2]==1  %}
-    <center><font face="verdana"> <b> Report result:</b></font> <font face="verdana" color="green">Patological compatible with COVID-19</font><br></center>
-    {% elif answer[2]==0  %} 
-    <center><font face="verdana"><b> Report result:</b></font> <font face="verdana" color="green">Non patological</font><br></center>
-    {% elif answer[2]==2  %} 
-    <center><font face="verdana"><b> Report result:</b><font face="verdana" color="green">Patological NON compatible with COVID-19</font><br></center>
-    {% endif %}
+      <div class="results__card">
+        <div class="results__element">
+          {% if answer[2]==1  %}
+            <div class="results__answer">
+              <b>Respuesta correcta:</b>&nbsp;<p class="results__correct">Patológico (compatible con COVID-19)</p>
+            </div>
+          {% elif answer[2]==0  %} 
+          <div class="results__answer">
+            <b>Respuesta correcta:</b>&nbsp;<p class="results__correct">No Patológico</p>
+          </div>
+          {% elif answer[2]==2  %} 
+            <div class="results__answer">
+              <b>Respuesta correcta:</b>&nbsp;<p class="results__correct">Patológico ({{answer[4]}})</p>
+            </div>
+          {% endif %}
 
-
-    {% if answer[3]==1  %}
-    <center><font face="verdana"><b> User answer:</b></font><font face="verdana" color="red">Patological compatible with COVID-19</font><br></center>
-    {% elif answer[3]==0  %} 
-    <center><font face="verdana"><b> User answer:</b></font><font face="verdana" color="red"> Non patological</font> <br></center>
-    {% elif answer[3]==2  %} 
-    <center><font face="verdana"><b> User answer:</b></font><font face="verdana" color="red"> Patological NON compatible with COVID-19</font> <br></center>
-    {% endif %}
-     <img src="static/img/{{answer[1]}}.DCM.JPG" width="100%" height="100%">
-     <br><br><br>
-     
-     
+          {% if answer[3]==1  %}
+            <div class="results__answer">
+              <b>Tu respuesta:</b>&nbsp;<p class="results__wrong">Patológico (compatible con COVID-19)</p>
+            </div>
+          {% elif answer[3]==0  %} 
+            <div class="results__answer">
+              <b>Tu respuesta:</b>&nbsp;<p class="results__wrong">No Patológico</p>
+            </div>
+          {% elif answer[3]==2  %} 
+            <div class="results__answer">
+              <b>Tu respuesta:</b>&nbsp;<p class="results__wrong">Patológico ({{answer[4]}})</p>
+            </div>
+          {% endif %}
+        </div>
+        <div class="results__image">
+          <img src="static/img/{{answer[1]}}.DCM.JPG" width="57%">
+        </div>
+      </div>
+      <br><br><br>
     {% endfor %}
   {% endif%}
- </div>
 </div>
 {% endblock %}

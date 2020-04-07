@@ -1,0 +1,63 @@
+.results {
+  &__details {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid grey;
+    border-radius: 16px;
+    font-size: 20px;
+    margin: auto;
+    width: 75%;
+  }
+
+  &__try-again {
+    margin-bottom: 1rem;
+
+    button {
+      width: 50%;
+    }
+  }
+
+  &__separator {
+    height: 1px;
+    background-color: #ffc000;
+    width: 90%;
+    margin: 3rem auto;
+  }
+
+  &__card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid grey;
+    border-radius: 16px;
+    width: 70%;
+    margin: auto;
+    padding: 1rem;
+  }
+
+  &__element {
+    display: inline-grid;
+    margin-bottom: 1rem;
+  }
+
+  &__answer {
+    display: inline-flex;
+    font-size: 18px;
+    margin: 0.25rem 0;
+  }
+
+  &__correct {
+    color: green;
+    margin: 0;
+  }
+
+  &__wrong {
+    color: red;
+    margin: 0;
+  }
+
+  &__image {
+    img {
+      border-radius: 0.5rem;
+      height:100%;
+      width:100%;
+    }
+  }
+}

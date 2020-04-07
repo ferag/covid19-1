@@ -1,0 +1,56 @@
+.training {
+  display: flex;
+
+  &__actions {
+    width: 35%;
+    padding: 0.75rem;
+  }
+
+  &__end {
+    margin-bottom: 1rem;
+    button {
+      width: 100%;
+    }
+  }
+
+  &__container {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #ffc000;
+    border-radius: 4px;
+    padding: 1rem;
+  }
+
+  &__next {
+    margin-top: 2rem;
+    width: 100%;
+  }
+
+  &__images {
+    background-color: black;
+    border: 1px solid grey;
+    border-radius: 4px;
+    margin: 0.75rem;
+    width: 65%;
+
+    img {
+      border: 1px solid grey;
+      border-radius: 4px;
+      width:100%;
+      height:100%;
+    }
+  }
+}
+
+.zoom parent-zoom {
+  height: auto;
+  width: auto;
+}
+
+label {
+  font-size: 20px;
+}
+
+#type_of_diag {
+  font-size: 14px;
+  width: 100%;
+}

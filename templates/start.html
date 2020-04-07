@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% block title %}Bienvenido{% endblock %}
+{% block head %}
+  {{ super() }}
+  <script src="{{ url_for('static',filename='controller/start.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+  <div class="content start">
+    <div class="start__avatar">
+      <img
+        src="{{ url_for('static',filename='assets/logo.png') }}"
+        alt="Covid-19 Avatar"
+      >
+    </div>
+    <h2>Bienvenido a COVID-19 Training</h2>
+
+    Por favor, selecciona tu especialidad para continuar:
+    <form action="/training" method="POST">
+      {{ form.csrf_token }}
+      <div class="start__select">
+        {{ form.type_of_profile.label }}{{ form.type_of_profile }}
+      </div>
+      <div class="start__button">
+        <input class="covid-button" type="submit" name="button_start" value="Continuar">
+      </div>
+      <div class="start__logout">
+        Logeado como <strong>{{ email }}</strong>. Si quieres cerrar sesion y salir, haz <a href="/logout">click aqui</a>.
+      </div>
+    </form>
+  </div>
+{% endblock %}

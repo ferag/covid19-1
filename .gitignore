@@ -1,0 +1,8 @@
+.DS_Store
+.vscode/
+client_secrets.json
+db/
+prueba.py
+static/.webassets-cache/
+static/img/
+venv/

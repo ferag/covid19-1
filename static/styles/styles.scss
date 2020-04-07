@@ -1,0 +1,104 @@
+body {
+  background-image: url('https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA12066_hires.jpg');
+  background-attachment: fixed;
+}
+
+select {
+  background-color: #555;
+  border: 1px solid #ffc000;
+  border-radius: 4px;
+  color: whitesmoke;
+  cursor: pointer;
+  font-size: 16px;
+  height: 1.75rem;
+  margin-top: 0.5rem;
+  outline: none;
+
+  &:hover {
+    background-color: rgba(255, 192, 0, 0.75);
+    color: #272727;
+  }
+
+  option {
+    &:hover {
+      background-color: #ffc000;
+      color: #272727;
+    }
+  }
+}
+
+.covid-button {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid #ffc000;
+  border-radius: 4px;
+  color: whitesmoke;
+  cursor: pointer;
+  font-family: Calibri, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  padding: 0.75rem;
+  text-decoration: none;
+
+  &:hover {
+    background-color: rgba(255, 192, 0, 0.75);
+    color: #272727;
+  }
+
+  &:active {
+    background-color: #ffc000;
+    color: black;
+  }
+}
+
+.page-wrapper {
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  font-family: Calibri, sans-serif;
+  font-size: 24px;
+  margin: auto;
+  min-height: 98vh;
+  position: relative;
+  text-align: center;
+
+  .content {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #ffc000;
+    border-radius: 4px;
+    margin: 3.5rem auto 2rem;
+    padding: 1rem;
+    width: 70%;
+
+    &__wrapper {
+      width: 100%;
+    }
+  }
+
+  .footer {
+    font-size: 16px;
+    height: 2rem; 
+    margin-top: auto;
+    width: 100%;
+    a {
+      color: whitesmoke;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+img { 
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media (max-width: 800px) {
+  .page-wrapper {
+    .content {
+      width: 100%;
+    }
+  }
+} 

@@ -1,0 +1,27 @@
+.about {
+  background: #090909;
+  border-radius: 8px;
+  margin: 4rem 2rem;
+  padding: 3rem 2rem;
+  text-align: justify;
+
+  &__title {
+    padding-left: 2rem;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__column {
+    padding: 2rem;
+  }
+
+  &__paragraph {
+    font-size: 20px;
+  }
+}
